@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "antlr4ts": "antlr4ts -visitor ./lib/CSharpParser.g4",
+    "generate-cs": "antlr4ts ./lib/CSharpLexer.g4 ./lib/CSharpParser.g4",
+    "generate-visitor": "antlr4ts -visitor ./lib/CSharpParser.g4",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "antlr4": "4.7.2",
+    "antlr4ts": "^0.5.0-alpha.4"
+  },
+  "devDependencies": {
+    "@types/antlr4": "^4.7.2",
+    "@types/node": "^15.12.4",
+    "antlr4ts-cli": "^0.5.0-alpha.4"
+  }
+}
