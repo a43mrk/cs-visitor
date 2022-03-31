@@ -23,8 +23,8 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 
 import * as Utils from "antlr4ts/misc/Utils";
 
-import { CSharpParserListener } from "./CSharpParserListener";
-import { CSharpParserVisitor } from "./CSharpParserVisitor";
+import { CSharpParserListener } from "./module";
+import { CSharpParserVisitor } from "./module";
 
 
 export class CSharpParser extends Parser {

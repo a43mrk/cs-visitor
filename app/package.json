@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "antlr4ts": "antlr4ts -visitor ./lib/CSharpParser.g4",
+    "antlr4ts": "antlr4ts -visitor ./lib/CSharpParser.g4 -o ./lib/ANTLR",
     "generate-cs": "antlr4ts ./lib/CSharpLexer.g4 ./lib/CSharpParser.g4",
     "generate-visitor": "antlr4ts -visitor ./lib/CSharpParser.g4",
     "test": "echo \"Error: no test specified\" && exit 1"

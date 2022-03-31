@@ -1,15 +1,16 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Lexer, InputStream, CommonTokenStream } from 'antlr4';
 import { ParseTreeWalker } from 'antlr4ts/tree/ParseTreeWalker';
-import { CSharpLexer } from './lib/CSharpLexer';
-import { CSharpParser, Method_declarationContext} from './lib/CSharpParser';
+import { CSharpLexer } from './lib/module';
+import { CSharpParser, Method_declarationContext} from './lib/module';
 import { CharStream } from "antlr4ts/CharStream";
 import { TokenStream } from "antlr4ts/TokenStream";
-import { CSharpParserListener } from "./lib/CSharpParserListener";
+import { CSharpParserListener } from "./lib/module";
 
-import { CSharpParserVisitor } from './lib/CSharpParserVisitor'
+import { CSharpParserVisitor } from './lib/module'
 import { AbstractParseTreeVisitor } from 'antlr4ts/tree/AbstractParseTreeVisitor'
+import { ANTLRInputStream } from 'antlr4ts/ANTLRInputStream';
+import { CommonTokenStream } from 'antlr4ts/CommonTokenStream';
 
 // =================================== main ========================================
 //
@@ -19,22 +20,23 @@ var input: Buffer;
 
 fs.readFile(filePath, (err, data) => {
   if(err) throw err;
-  console.log(data);
+  // console.log(data);
   input = data;
 
-  var chars = new InputStream(input.toString());
-  var lexer = new CSharpLexer(<CharStream><unknown>chars  );
-  var tokens = new CommonTokenStream(<Lexer><unknown>lexer);
-  var parser = new CSharpParser(<TokenStream><unknown>tokens);
+  // console.log(input.toString());
+  // var chars = new InputStream(input.toString());
+  let chars = new ANTLRInputStream(input.toString());
+  var lexer = new CSharpLexer(chars);
+  var tokens = new CommonTokenStream(lexer);
+  var parser = new CSharpParser(tokens);
 
   parser.buildParseTree = true;
 
   // We want to print parser's properties to see if we have a rule function there:
-  console.log(Object.keys(parser))
+  // console.log(Object.keys(parser))
 
   // this will throw an error
   let tree = parser.compilation_unit();
-
 
   //
   // Listener Approach
