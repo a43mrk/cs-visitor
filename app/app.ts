@@ -13,7 +13,7 @@ import { ANTLRInputStream } from 'antlr4ts/ANTLRInputStream';
 import { CommonTokenStream } from 'antlr4ts/CommonTokenStream';
 
 // =================================== main ========================================
-//
+// run> npx ts-node app.ts assets/sample.cs
 var filePath = process.argv[2]
 
 var input: Buffer;
