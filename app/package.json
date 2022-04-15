@@ -7,9 +7,20 @@
     "lib": "lib"
   },
   "scripts": {
-    "antlr4ts": "antlr4ts -visitor ./lib/CSharpParser.g4 -o ./lib/ANTLR",
+    "gen-cs": "antlr4ts -visitor ./lib/grammars/cs/CSharpLexer.g4 ./lib/grammars/cs/CSharpParser.g4",
+    "gen-es": "antlr4ts -visitor ./lib/grammars/es/ECMAScript.g4",
+    "gen-ts": "antlr4ts -visitor ./lib/grammars/ts/TypeScriptLexer.g4 ./lib/grammars/ts/TypeScriptParser.g4",
+    "gen-js": "antlr4ts -visitor ./lib/grammars/js/JavaScriptLexer.g4 ./lib/grammars/js/JavaScriptParser.g4",
+    "gen-jsx": "antlr4ts -visitor ./lib/grammars/jsx/JavaScriptLexer.g4 ./lib/grammars/jsx/JavaScriptParser.g4",
+    "gen-xml": "antlr4ts -visitor ./lib/grammars/xml/XMLLexer.g4 ./lib/grammars/xml/XMLParser.g4",
+    "gen-java8": "antlr4ts -visitor ./lib/grammars/java8/Java8Lexer.g4 ./lib/grammars/java8/Java8Parser.g4",
+    "gen-java9": "antlr4ts -visitor ./lib/grammars/java9/Java9Lexer.g4 ./lib/grammars/java9/Java9Parser.g4",
+    "gen-html": "antlr4ts -visitor ./lib/grammars/html/HTMLLexer.g4 ./lib/grammars/html/HTMLParser.g4",
+    "gen-dart": "antlr4ts -visitor ./lib/grammars/dart/Dart2.g4",
+    "gen-css": "antlr4ts -visitor ./lib/grammars/css/css3.g4",
+    "gen-json": "antlr4ts -visitor ./lib/grammars/json/JSON.g4",
     "generate-cs": "antlr4ts ./lib/CSharpLexer.g4 ./lib/CSharpParser.g4",
-    "generate-visitor": "antlr4ts -visitor ./lib/CSharpParser.g4",
+    "generate-cs-visitor": "antlr4ts -visitor ./lib/CSharpParser.g4",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
